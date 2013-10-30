@@ -6,7 +6,7 @@
 <head>
   <title>{{author}} {{title}} on scriptogr.am</title>
   <meta name="description" content="{{author}} {{blog_title}}" />
-  <meta name="viewport" content="width=device-width; initial-scale=1; maximum-scale=1.0;">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0">
   <meta name="apple-mobile-web-app-capable" content="yes"/>
   <meta name="ROBOTS" content="INDEX,FOLLOW">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -52,10 +52,7 @@
             </div>
             {{/date}}
             <div class="body-post">
-              <!--if excerpt-->
-              {{#excerpt}}<span class="introduction">{{excerpt}}</span>{{/excerpt}}
-              <!--endif-->
-              {{content}}
+              {{excerpt}}<br> ... <em><a href="{{permalink}}">loe edasi</a></em>
               <!-- if tags -->
               {{#if_tags}}
               <ul class="tags">
@@ -82,9 +79,6 @@
             </div>
             {{/date}}
             <div class="body-post">
-              <!--if excerpt-->
-              {{#excerpt}}<span class="introduction">{{excerpt}}</span>{{/excerpt}}
-              <!--endif-->
               {{content}}
               <!-- if tags -->
               {{#if_tags}}
@@ -120,9 +114,6 @@
           <div class="content">
             <div class="title"><h3><a href="{{permalink}}">{{title}}</a></h3></div>
               <div class="body-page">
-              <!--if excerpt-->
-              {{#excerpt}}<span class="introduction">{{excerpt}}</span>{{/excerpt}}
-              <!--endif-->
               {{content}}
               <!-- if tags -->
               {{#if_tags}}
@@ -176,4 +167,4 @@
 }(document, 'script', 'facebook-jssdk'));
 </script>
 </body>
-</html>
+</html>                                         

@@ -2,11 +2,11 @@
 
 body {
 	background: #fff;
-	color: #666666;
+	color: #444;
 	font: 12px/1.5 Helvetica, Arial, sans-serif;
 	margin: 0px;
 	padding: 50px;
-	width: 760px;
+	max-width: 960px;
 }
 
 /* Links & Typography */
@@ -183,20 +183,25 @@ code {
 
 ul.tags {
   width: 460px;
-  border-top: 1px solid #ccc; 
+  /*border-top: 1px solid #ccc; */
   margin: 20px 0;
   padding: 20px 0;
 }
  
   ul.tags li {
     list-style: none;
+    display: inline;
+    padding: 6px 8px;
+    margin: 0 5px 0 0;
+    background: #ddd;
+    border-radius: 5px;
   }
  
-    ul.tags li a {
-      margin: 0 15px 0 0; 
-      float: left; 
+    ul.tags li a, ul.tags li a:hover {
       font-family: Helvetica, Arial, sans-serif;
-      font-size: 12px;    
+      font-size: 12px;
+      color: #fff;
+      text-decoration:none
     }
 
 /* Lists */
