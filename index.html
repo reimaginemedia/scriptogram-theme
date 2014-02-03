@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="author" content="Sookoll">
+		<meta name="description" content="Sookolli veebileht" />
+		<meta name="apple-mobile-web-app-capable" content="yes"/>
+		<meta name="ROBOTS" content="INDEX,FOLLOW">
+		<title>Sookolli Kaardid</title>
+
+		<!-- Bootstrap core CSS -->
+		<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet">
+		<!-- Theme -->
+		<link href="//hub.sookoll.ee/style.css" rel="stylesheet">
+		{{css}}
+	</head>
+	<body>
+		<header>
+			<div class="container">
+				<div class="col-sm-4 col-xs-8">
+					<h1><a href="//sookoll.ee">SOOKOLLI KAARDID</a></h1>
+					Don't follow me, I'm a geographer!
+				</div>
+				<div class="col-sm-8 col-xs-4">
+					<button type="button" class="btn navbar-toggle" data-toggle="collapse" data-target=".navbar">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+				</div>
+				<div class="clear" style="height: 30px"></div>
+			</div>
+		</header>
+		<section>
+			<div class="container">
+				<div class="clear" style="height: 20px"></div>
+				<div class="col-sm-4">
+					<!-- Navbar -->
+					<ul class="navbar navbar-default navbar-collapse collapse" role="navigation"></ul>
+				</div>
+				<div class="col-sm-8 content">
+					<!-- Content -->
+					{{#posts}}
+
+					<!-- index and all others than post -->
+					{{^is_post}}
+
+					<a href="{{permalink}}"><h3>{{title}}</h3></a>
+					
+					{{#date}}<span class="date" data-date="{{date}}">{{prettydate}}</span>{{/date}}
+					{{#if_tags}}
+					<span class="tags">[
+						{{#tags}}
+						<a href="{{base_url}}/tag/{{name}}">{{name}}</a>
+						{{/tags}}
+					]</span>
+					{{/if_tags}}
+
+					{{/is_post}}
+					
+					<!-- post permalink -->
+					{{#is_post}}
+					
+					<h1>{{title}}</h1>
+					{{#date}}<span class="date" data-date="{{date}}">{{prettydate}}</span>{{/date}}
+					
+					<article>
+						{{content}}
+					</article>
+					
+					<!-- if tags -->
+					{{#if_tags}}
+					<ul class="tags">
+					{{#tags}}
+						<li><a href="{{base_url}}/tag/{{name}}">{{name}}</a></li>
+					{{/tags}}
+					</ul>  
+					{{/if_tags}}
+					<!-- endif -->
+					
+					{{/is_post}}
+
+					{{/posts}}
+					<img src="//hub.sookoll.ee/sookoll_kaardil.png" class="logo">
+					<a href="#" class="back-to-top">up</a>
+				</div>
+				<div class="clear" style="height: 20px"></div>
+			</div>
+		</section>
+		<footer>
+			<div class="container">
+				<div class="clear" style="height: 30px"></div>
+				<div class="col-sm-4">
+					<small><a href="http://sookoll.ee">Sookolli Kaardid 2014</a></small>
+				</div>
+				<div class="clear" style="height: 50px"></div>
+			</div>
+		</footer>
+
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+		<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+		<script src="//hub.sookoll.ee/main.js"></script>
+		<script>
+			;( function(window, $, undefined) {
+				
+				"use strict";
+				
+				// convert dates
+				$('.date').each(function(){
+					var timestamp = $(this).attr('data-date');
+					var format = '{{#is_index}}%Y.%M.%d{{/is_index}}{{^is_index}}%d.%M.%Y{{/is_index}}';
+					if(timestamp){
+						var date = new Date(Number(timestamp) * 1000);
+						$(this).html(formatDate(date, format));
+					}
+				})
+			
+			}( window, jQuery ));
+		</script>
+
+	</body>
+</html>
